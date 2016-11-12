@@ -26,6 +26,10 @@ client.on('message', function (topic, message) {
       console.log("Pushing own comment");
       document.getElementById("MathInput").value = "";
       var html = $("#MathPreviewOurs").html();
+      var buffer = $("#MathBufferOurs").html();
+      if (buffer.length > html.length) {
+        html = buffer;
+      }
       $("#MathPreviewOurs").html("");
       var element = $('<div class="message mine"></div>');
       element.html(html);
@@ -33,6 +37,10 @@ client.on('message', function (topic, message) {
     } else {
       console.log("Pushing other comment");
       var html = $("#MathPreviewTheirs").html();
+      var buffer = $("#MathBufferTheirs").html();
+      if (buffer.length > html.length) {
+        html = buffer;
+      }
       $("#MathPreviewTheirs").html("");
       var element = $('<div class="message theirs"></div>');
       element.html(html);
