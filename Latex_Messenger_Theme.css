@@ -1,42 +1,79 @@
-body
-{
-background-color: white;	
+body {
+    background-color: white;
 }
 
-
-
-h1
-{
-color:blue;
-text-align: center;
-font-size: 3rem; 
-font-family: "Helvetica Neue", "Segoe UI";
-}
- 
-#otherMessage
-{
-background-color: skyblue;
-}
-#preview
-{
-position: fixed;
-right: .5rem;
-bottom: 4rem;
-width: 40rem;
-height: 2rem;
-border-radius: .75rem;
-font-size: 1.5rem; 
-font-family: "Helvetica Neue", "Segoe UI";
+.center {
+    margin: auto;
 }
 
-#rawOutput
-{
-position: fixed;
-right: .5rem;
-bottom: .75rem;
-width: 40rem;
-height: 2rem;
-border-radius: .75rem;
-font-size: 1.5rem; 
-font-family: "Helvetica Neue", "Segoe UI";
+#username {
+    color: white;
+    float: right;
+    clear: both;
+    width: 150px;
+    height: 25px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+}
+
+#button {
+    float: right;
+    clear: both;
+}
+
+#MathJax_Message {
+    width: 300px;
+    height: 600px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+}
+
+#MathPreviewOurs {
+    color: blue;
+    width: 300px;
+    height: 600px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+}
+
+#MathPreviewTheirs {
+    color: blue;
+    width: 300px;
+    height: 600px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+}
+
+#ChatHistory {
+    color: orange;
+    background: blue;
+    width: 300px;
+    height: 600px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+}
+
+#otherMessage {
+    background-color: skyblue;
+}
+
+#MathInput {
+    right: .5rem;
+    bottom: 4rem;
+    width: 10rem;
+    height: 2rem;
+    border-radius: .75rem;
+    font-size: 1.5rem;
+    font-family: "Helvetica Neue", "Segoe UI";
+}
+
+#rawOutput {
+    position: fixed;
+    right: .5rem;
+    bottom: .75rem;
+    width: 40rem;
+    height: 2rem;
+    border-radius: .75rem;
+    font-size: 1.5rem;
+    font-family: "Helvetica Neue", "Segoe UI";
 }
