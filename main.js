@@ -46,6 +46,7 @@ client.on('message', function (topic, message) {
       element.html(html);
       $("#ChatHistory").append(element);
     }
+    $('#ChatHistory').scrollTop($('#ChatHistory')[0].scrollHeight);
   }
 });
 
