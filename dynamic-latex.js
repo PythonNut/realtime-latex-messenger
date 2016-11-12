@@ -9,12 +9,11 @@ var Preview = {
   mjPending: false,  // true when a typeset has been queued
   oldText: null,     // used to check if an update is needed
 
+  text: '',
   //
   //  Get the preview and buffer DIV's
   //
   Init: function () {
-    this.preview = document.getElementById("MathPreview");
-    this.buffer = document.getElementById("MathBuffer");
   },
 
   //
@@ -25,8 +24,10 @@ var Preview = {
   SwapBuffers: function () {
     var buffer = this.preview, preview = this.buffer;
     this.buffer = buffer; this.preview = preview;
-    buffer.style.visibility = "hidden"; buffer.style.position = "absolute";
-    preview.style.position = ""; preview.style.visibility = "";
+    buffer.style.visibility = "hidden";
+    buffer.style.position = "absolute";
+    preview.style.position = "";
+    preview.style.visibility = "";
   },
 
   //
@@ -37,9 +38,15 @@ var Preview = {
   //    a pause in the typing).
   //  The callback function is set up below, after the Preview object is set up.
   //
-  Update: function () {
-    if (this.timeout) {clearTimeout(this.timeout)}
-    this.timeout = setTimeout(this.callback, this.delay);
+  Update: function (preview, buffer, text) {
+    this.preview = document.getElementById(preview);
+    this.buffer = document.getElementById(buffer);
+    this.text = text;
+    this.callback();
+    // if (this.timeout) {
+    //   clearTimeout(this.timeout);
+    // }
+    // this.timeout = setTimeout(this.callback, this.delay);
   },
 
   //
@@ -52,17 +59,16 @@ var Preview = {
   CreatePreview: function () {
     Preview.timeout = null;
     if (this.mjPending) return;
-    var text = document.getElementById("MathInput").value;
-    if (text === this.oldtext) return;
+    if (this.text === this.oldtext) return;
     if (this.mjRunning) {
       this.mjPending = true;
-      MathJax.Hub.Queue(["CreatePreview",this]);
+      MathJax.Hub.Queue(["CreatePreview", this]);
     } else {
-      this.buffer.innerHTML = this.oldtext = text;
+      this.buffer.innerHTML = this.oldtext = this.text;
       this.mjRunning = true;
       MathJax.Hub.Queue(
-        ["Typeset",MathJax.Hub,this.buffer],
-        ["PreviewDone",this]
+        ["Typeset", MathJax.Hub, this.buffer],
+        ["PreviewDone", this]
       );
     }
   },
@@ -83,3 +89,4 @@ var Preview = {
 //
 Preview.callback = MathJax.Callback(["CreatePreview", Preview]);
 Preview.callback.autoReset = true;  // make sure it can run more than once
+

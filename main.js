@@ -1,5 +1,6 @@
 var client = mqtt.connect("mqtt://134.173.206.85", {port:8883});
-
+var state = 1;
+var username = "";
 client.on('connect', function () {
   client.subscribe('presence');
   client.subscribe('message');
@@ -12,6 +13,28 @@ client.on('message', function (topic, message) {
   if (topic === "message") {
     alert(message);
   } else if (topic === "latex") {
-    UpdateMath(message);
+    var object = JSON.parse(message);
+    if (object.username === username) {
+      Preview.Update('MathPreview', 'MathBuffer', object.message);
+    } else {
+      Preview.Update('MathPreview2', 'MathBuffer2', object.message);
+    }
   }
 });
+
+myupdate = function(string){
+  console.log("hi" + string);
+  var object = {
+    username: username,
+    message: string
+  };
+  client.publish('latex', JSON.stringify(object));
+};
+
+$(function (){
+  Preview.Init();
+});
+
+setusername = function() {
+  username = document.getElementById("username").value;
+};

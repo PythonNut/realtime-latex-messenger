@@ -4,48 +4,41 @@
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] } });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
     </script>
     <script src="browserMqtt.js"></script>
-    <script src="main.js"></script>
 
-    <script>
-      //
-      //  Use a closure to hide the local variables from the
-      //  global namespace
-      //
-      (function() {
-      var QUEUE = MathJax.Hub.queue; // shorthand for the queue
-      var math = null; // the element jax for the math output.
-      //
-      //  Get the element jax when MathJax has produced it.
-      //
-      QUEUE.Push(function() {
-      math = MathJax.Hub.getAllJax("MathOutput")[0];
-      });
-      //
-      //  The onchange event handler that typesets the
-      //  math entered by the user
-      //
-      window.UpdateMath = function(TeX) {
-        QUEUE.Push(["Text", math, "\\displaystyle{" + TeX + "}"]);
-      }
-      })();
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      publishMath = function(text) {
-        client.publish('latex', text);
-      }
+    <script type="text/x-mathjax-config;executed=true">
+      MathJax.Hub.Config({ showProcessingMessages: false, tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] } });
     </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 
+    <script src="dynamic-latex.js"></script>
+    <script src="main.js"></script>
   </head>
   <body>
-    <h1>This is a test</h1>
-    ... Or is it?
-    <input id="MathInput" size="50" onkeyup="publishMath(this.value)" />
-    <p>
-      <div id="MathOutput">
-        You typed: ${}$
-      </div>
-    </p>
+    <input id="username" type="text" placeholder="username">
+    <button onclick="setusername()">Login</button><br>
+
+    <div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;">
+      <div id="MathJax_Hidden"></div>
+    </div>
+    <div id="MathJax_Message" style="display: none;"></div>
+
+    <textarea id="MathInput" cols="60" rows="10" onkeyup="myupdate(this.value)" style="margin-top:5px"></textarea>
+
+    <div id="MathPreview" style="border: 1px solid; padding: 3px; width: 50%; margin-top: 5px; visibility: hidden; position: absolute;"></div>
+    <div id="MathBuffer" style="border: 1px solid; padding: 3px; width: 50%; margin-top: 5px; top: 0px; left: 0px;"></div>
+
+    <div id="MathPreview2" style="border: 1px solid; padding: 3px; width: 50%; margin-top: 5px; visibility: hidden; position: absolute;"></div>
+    <div id="MathBuffer2" style="border: 1px solid; padding: 3px; width: 50%; margin-top: 5px; top: 0px; left: 0px;"></div>
+
+    <div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;">
+      <div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Math-italic, sans-serif;"></div>
+    </div>
   </body>
 </html>

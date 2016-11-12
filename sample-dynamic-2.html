@@ -25,12 +25,13 @@
     </div>
     <div id="MathJax_Message" style="display: none;"></div>
 
-    <textarea id="MathInput" cols="60" rows="10" onkeyup="Preview.Update()" style="margin-top:5px"></textarea>
+    <textarea id="MathInput" cols="60" rows="10" onkeyup="myupdate(this)" style="margin-top:5px"></textarea>
 
     <p>Preview is shown here:</p>
     <div id="MathPreview" style="border: 1px solid; padding: 3px; width: 50%; margin-top: 5px; visibility: hidden; position: absolute;"></div>
     <div id="MathBuffer" style="border: 1px solid; padding: 3px; width: 50%; margin-top: 5px; top: 0px; left: 0px;"></div>
-
+    <div id="MathPreview2" style="border: 1px solid; padding: 3px; width: 50%; margin-top: 5px; visibility: hidden; position: absolute;"></div>
+    <div id="MathBuffer2" style="border: 1px solid; padding: 3px; width: 50%; margin-top: 5px; top: 0px; left: 0px;"></div>
     <script>
       Preview.Init();
     </script>
