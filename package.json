@@ -1,0 +1,23 @@
+{
+  "name": "RLM",
+  "version": "0.0.1",
+  "description": "Realtime LaTeX Messenger",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PythonNut/realtime-latex-messenger"
+  },
+  "keywords": [],
+  "author": "PythonNut",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PythonNut/realtime-latex-messenger/issues"
+  },
+  "homepage": "https://github.com/PythonNut/realtime-latex-messenger",
+  "devDependencies": {
+    "browser-sync": "^2.17.5",
+    "gulp": "^3.9.1"
+  }
+}
