@@ -5,6 +5,7 @@ client.on('connect', function () {
   client.subscribe('presence');
   client.subscribe('message');
   client.subscribe('latex');
+  client.subscribe('push');
   client.publish('presence', 'Hello mqtt');
 });
 
@@ -18,6 +19,24 @@ client.on('message', function (topic, message) {
       Preview.Update('MathPreviewOurs', 'MathBufferOurs', object.message);
     } else {
       Preview.Update('MathPreviewTheirs', 'MathBufferTheirs', object.message);
+    }
+  } else if (topic === "push") {
+    console.log("Pushing"+message+username);
+    if (message == username) {
+      console.log("Pushing own comment");
+      document.getElementById("MathInput").value = "";
+      var html = $("#MathPreviewOurs").html();
+      $("#MathPreviewOurs").html("");
+      var element = $('<div class="message mine"></div>');
+      element.html(html);
+      $("#ChatHistory").append(element);
+    } else {
+      console.log("Pushing other comment");
+      var html = $("#MathPreviewTheirs").html();
+      $("#MathPreviewTheirs").html("");
+      var element = $('<div class="message theirs"></div>');
+      element.html(html);
+      $("#ChatHistory").append(element);
     }
   }
 });
@@ -37,4 +56,9 @@ $(function (){
 
 setusername = function() {
   username = document.getElementById("username").value;
+};
+
+push = function() {
+  console.log("Initiating push for " + username);
+  client.publish('push', username);
 };
