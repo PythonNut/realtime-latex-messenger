@@ -38,12 +38,15 @@
     </script>
 
     Type your message here:
-    <input id="MathInput" size="50" onkeyup="UpdateMath(this.value)" />
+    <input id="MathInput" size="50" onkeyup="Preview.Update()" />
     <p>
 
-        <div id="MathOutput">
-            You typed: {}
-        </div>
+        <div id="MathPreview" style="border: 1px solid; padding: 3px; width: 50%; margin-top: 5px; visibility: hidden; position: absolute;">$ jk </div>
+        <div id="MathBuffer" style="border: 1px solid; padding: 3px; width: 50%; margin-top: 5px; top: 0px; left: 0px;"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 0.974em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.913em; height: 0px; font-size: 103%;"><span style="position: absolute; clip: rect(1.277em 1000.91em 2.491em -999.997em); top: -2.121em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Math-italic;">j</span><span class="mi" id="MathJax-Span-4" style="font-family: MathJax_Math-italic;">k</span></span><span style="display: inline-block; width: 0px; height: 2.127em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.066em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi><mi>k</mi></math></span></span><script type="math/tex" id="MathJax-Element-1"> jk </script></div>
+
+        <script>
+        Preview.Init();
+        </script>
 
 </body>
 
