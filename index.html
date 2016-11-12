@@ -1,10 +1,51 @@
 <!doctyle html>
 <html>
   <head>
-    <script src="browserMqtt.js">
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] } });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
+    </script>
+    <script src="browserMqtt.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+      //
+      //  Use a closure to hide the local variables from the
+      //  global namespace
+      //
+      (function() {
+      var QUEUE = MathJax.Hub.queue; // shorthand for the queue
+      var math = null; // the element jax for the math output.
+      //
+      //  Get the element jax when MathJax has produced it.
+      //
+      QUEUE.Push(function() {
+      math = MathJax.Hub.getAllJax("MathOutput")[0];
+      });
+      //
+      //  The onchange event handler that typesets the
+      //  math entered by the user
+      //
+      window.UpdateMath = function(TeX) {
+        QUEUE.Push(["Text", math, "\\displaystyle{" + TeX + "}"]);
+      }
+      })();
+
+      publishMath = function(text) {
+        client.publish('latex', text);
+      }
+    </script>
+
   </head>
   <body>
     <h1>This is a test</h1>
     ... Or is it?
+    <input id="MathInput" size="50" onkeyup="publishMath(this.value)" />
+    <p>
+      <div id="MathOutput">
+        You typed: ${}$
+      </div>
+    </p>
   </body>
 </html>
