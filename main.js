@@ -15,9 +15,9 @@ client.on('message', function (topic, message) {
   } else if (topic === "latex") {
     var object = JSON.parse(message);
     if (object.username === username) {
-      Preview.Update('MathPreview', 'MathBuffer', object.message);
+      Preview.Update('MathPreviewOurs', 'MathBufferOurs', object.message);
     } else {
-      Preview.Update('MathPreview2', 'MathBuffer2', object.message);
+      Preview.Update('MathPreviewTheirs', 'MathBufferTheirs', object.message);
     }
   }
 });
