@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>This is the thing for </title>
+</head>
+
+<body>
+    <div class="message" id='message1'>
+        hi I'm great
+    </div>
+    <div class="message" id='message2'>
+        hi I'm great too
+    </div>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        function updateMessage(message_id, string) {
+
+            var output = string
+            var ID = message_id
+            var elementExists = !!document.getElementById(ID);
+            if (elementExists) {
+                var elem = document.getElementById(ID);
+                elem.innerHTML = string;
+            } else {
+                var txt2 = $("<div class='message'></div>").text(output); // Create with jQuery
+                $("body").append(txt2); // Append the new elements 
+                txt2.attr('id', ID);
+            }
+        }
+        updateMessage("message1", "$3^2$")
+    </script>
+
+</body>
+
+</html>
