@@ -1,17 +1,11 @@
 <!doctyle html>
 <html>
-  <head>
+
+<head>
     <link rel="stylesheet" type="text/css" href="Latex_Messenger_Theme.css">
 
     <script type="text/x-mathjax-config;executed=true">
-      MathJax.Hub.Config({
-        showProcessingMessages: false,
-        tex2jax: {
-          inlineMath: [['$','$'],['\\(','\\)']],
-          preview: "none"
-        },
-        messageStyle: "none"
-      });
+        MathJax.Hub.Config({ showProcessingMessages: false, tex2jax: { inlineMath: [['$','$'],['\\(','\\)']], preview: "none" }, messageStyle: "none" });
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -29,22 +23,24 @@
     <script src="main.js"></script>
 
     <style>
-      #MathJax_Message {display: none !important;}
-      </style>
-  </head>
-  <body>
+        #MathJax_Message {
+            display: none !important;
+        }
+    </style>
+</head>
 
-    <input id="username" type="text" placeholder="username">
-    <button id="button" onclick="setusername()">Login</button>
+<body>
+    <header><b>rlm</b>
+        <input id="username" type="text" placeholder="username">
+        <button id="button" onclick="setusername()">Login</button>
+    </header>
 
-
-    <div id="ChatHistory"> </div>
+    <div id="ChatHistory" class="center"> </div>
 
 
     <textarea id="MathInput" onkeyup="myupdate(this.value)" , class="center"></textarea>
 
-    <button onclick="push()", class="center">Push</button>
-
+    <button onclick="push()" class="center">Send</button>
 
     <div id="MathPreviewOurs" style="visibility: hidden;"></div>
     <div id="MathBufferOurs"></div>
@@ -59,7 +55,8 @@
 
     <div id="MathJax_Message"></div>
     <div style="display: none; visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;">
-      <div id="MathJax_Hidden"></div>
+        <div id="MathJax_Hidden"></div>
     </div>
-  </body>
+</body>
+
 </html>

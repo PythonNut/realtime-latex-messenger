@@ -1,13 +1,27 @@
 body {
-    background-color: white;
+    background-color: red;
+    max-width: 50rem;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    position: relative;
+    padding: 0rem;
+    overflow: hidden;
 }
-
-.center {
-    margin: auto;
+header{
+    background: rebeccapurple;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:3rem;
 }
 
 #username {
-    color: white;
+    color: black;
     float: right;
     clear: both;
     width: 150px;
@@ -28,52 +42,61 @@ body {
     border: 1px solid gray;
 }
 
-#MathPreviewOurs {
+#MathPreviewTheirs,
+#MathBufferTheirs {
+    background: mediumspringgreen;
+    position: absolute;
+    width: 50%;
+    right: 0;
+    height: 10rem;
+    bottom: 5rem;
     color: blue;
-    width: 300px;
-    height: 600px;
     box-sizing: border-box;
     border: 1px solid gray;
 }
 
-#MathPreviewTheirs {
+#MathPreviewOurs,
+#MathBufferOurs {
+    background: peachpuff;
+    position: absolute;
+    width: 50%;
+    left: 0;
+    height: 10rem;
+    bottom: 5rem;
     color: blue;
-    width: 300px;
-    height: 600px;
     box-sizing: border-box;
     border: 1px solid gray;
 }
 
 #ChatHistory {
     color: orange;
+    top: 3rem;
+    bottom: 15rem;
+    left: 0;
+    right: 0;
     background: blue;
-    width: 300px;
-    height: 600px;
     box-sizing: border-box;
     border: 1px solid gray;
+    position: absolute;
 }
 
-#otherMessage {
-    background-color: skyblue;
+button.center {
+    position: absolute;
+    height: 5rem;
+    right: 0;
+    bottom: 0;
+    width: 5rem;
 }
 
 #MathInput {
-    right: .5rem;
-    bottom: 4rem;
-    width: 10rem;
-    height: 2rem;
-    border-radius: .75rem;
-    font-size: 1.5rem;
-    font-family: "Helvetica Neue", "Segoe UI";
-}
-
-#rawOutput {
-    position: fixed;
-    right: .5rem;
-    bottom: .75rem;
-    width: 40rem;
-    height: 2rem;
-    border-radius: .75rem;
-    font-size: 1.5rem;
+    background: pink;
+    position: absolute;
+    bottom: 0;
+    height: 5rem;
+    right: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    display: block;
     font-family: "Helvetica Neue", "Segoe UI";
 }
