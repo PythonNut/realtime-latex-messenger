@@ -30,15 +30,18 @@
 </head>
 
 <body>
-    <header><b>rlm</b>
+  <header>
+    <b>Realtime LaTeX Messenger</b>
+    <div id="login">
         <input id="username" type="text" placeholder="username">
         <button id="button" onclick="setusername()">Login</button>
+    </div>
     </header>
 
     <div id="ChatHistory" class="center"> </div>
 
 
-    <textarea id="MathInput" onkeyup="myupdate(this.value)" , class="center"></textarea>
+    <textarea id="MathInput" onkeyup="myupdate(this.value)" class="center" placeholder="Type your message here..."></textarea>
 
     <button onclick="push()" class="center">Send</button>
 
