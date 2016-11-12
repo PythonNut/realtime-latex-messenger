@@ -42,6 +42,10 @@ client.on('message', function (topic, message) {
 });
 
 myupdate = function(string){
+  if (username == "") {
+    alert("Please login!");
+    return
+  }
   console.log("hi" + string);
   var object = {
     username: username,
