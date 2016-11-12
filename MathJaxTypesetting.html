@@ -13,11 +13,16 @@
 
 <body>
 
+
     <script>
+        function render_latex(input) {
+            UpdateMath(input);
+        }
         //
         //  Use a closure to hide the local variables from the
         //  global namespace
         //
+
         (function() {
             var QUEUE = MathJax.Hub.queue; // shorthand for the queue
             var math = null; // the element jax for the math output.
