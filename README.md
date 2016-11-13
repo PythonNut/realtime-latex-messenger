@@ -1,5 +1,6 @@
 # A realtime messaging applet with LaTeX support
 
+![screencast](images/realtime_latex_messenger_screenshot.png)
 
 ### Setup instructions
 
