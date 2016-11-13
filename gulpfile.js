@@ -33,3 +33,5 @@ gulp.task('express', function() {
   app.use(express.static(__dirname));
   app.listen('3000', '0.0.0.0');
 });
+
+gulp.task('run', ['mqtt', 'express']);
